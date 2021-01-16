@@ -6,13 +6,17 @@ inputStart
 inputEnd
 weather
 */
-var searchedRoute
-var savedRoute 
+var currentsearch = localStorage.getItem("currentsearch");
+console.log(currentsearch); 
 
 $("#searchBtn").click(function() {
-   let start = $("#inputStart").val().trim(); 
-   let end = $("#inputEnd").val().trim();
-   let weather = $("#weather").val().trim();
+   let search = [{
+       start: $("#inputStart").val().trim(),
+       end: $("#inputEnd").val().trim(),
+       weather: $("#weather").val().trim()
+   }];
+
+   localStorage.setItem("currentsearch", JSON.stringify(search)); 
 
   });
 
