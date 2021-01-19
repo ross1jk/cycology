@@ -20,8 +20,22 @@ $("#searchBtn").click(function() {
 
   });
 
+//geocode to get longitutde and latitude 
+//function findCoordinates(){
+let start = "Detroit" //localStorage.getItem()
+let end = "Flint" //localStorage.getItem()
+startCord = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + start + ".json?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
+endCord = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + end + ".json?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
 
-
+$.ajax({
+  url: startCord, 
+  method: "GET"
+}).then(function(response){
+  //check to ensure that start and stop are correct
+  var startlat = response.features[0].geometry.coordinates[0];
+  var startlon = response.features[0].geometry.coordinates[1]; 
+  console.log(startlat + " , " + startlon);
+});
 
 
 //end of start function 
