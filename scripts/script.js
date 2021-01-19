@@ -31,10 +31,19 @@ $.ajax({
   url: startCord, 
   method: "GET"
 }).then(function(response){
-  //check to ensure that start and stop are correct
-  var startlat = response.features[0].geometry.coordinates[0];
-  var startlon = response.features[0].geometry.coordinates[1]; 
-  console.log(startlat + " , " + startlon);
+  //I believe this is the right order for lat and lon? 
+  let startlat = response.features[0].geometry.coordinates[0];
+  let startlon = response.features[0].geometry.coordinates[1]; 
+  console.log(start + ": " + startlat + " , " + startlon);
+});
+
+$.ajax({
+  url: endCord, 
+  method: "GET"
+}).then(function(response){
+  let endlat = response.features[0].geometry.coordinates[0];
+  let endlon = response.features[0].geometry.coordinates[0];
+  console.log(end + ": " + endlat + " , " + endlon); 
 });
 
 
