@@ -7,14 +7,14 @@ inputEnd
 weather
 */
 
-//$("#searchBtn").click(function() {
+$("#searchBtn").click(function() {
    let start= $("#inputStart").val().trim();
    let end= $("#inputEnd").val().trim();
    let weather= $("#weather").val().trim()
    localStorage.setItem("start", start); 
    localStorage.setItem("end", end); 
    localStorage.setItem("weater", weather)
- // });
+ });
 
 //geocode to get longitutde and latitude 
 //function findCoordinates(){
@@ -31,7 +31,7 @@ let endCord = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + getend + ".
    let startlat = response.features[0].geometry.coordinates[0];
    let startlon = response.features[0].geometry.coordinates[1]; 
    console.log(start + ": " + startlat + " , " + startlon);
-   localStorage.setItem("endCord", startlat + ";" + startlon); 
+   localStorage.setItem("endCord", startlat + "," + startlon); 
  });
 
 $.ajax({
@@ -41,7 +41,7 @@ $.ajax({
   let endlat = response.features[0].geometry.coordinates[0];
   let endlon = response.features[0].geometry.coordinates[0];
   console.log(end + ": " + endlat + " , " + endlon); 
-  localStorage.setItem("startCord", endlat + ";" + endlon); 
+  localStorage.setItem("startCord", endlat + "," + endlon); 
 });
 
 
