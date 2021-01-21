@@ -8,8 +8,8 @@ weather
 */
 
 $("#searchBtn").click(function() {
-   let start=  $("#inputStart").val().trim();
-   let end= $("#inputEnd").val().trim();
+   let start=  "Gardenia Ave Royal Oak Michigan" //$("#inputStart").val().trim();
+   let end= "Main St Royal Oak Michigan" //$("#inputEnd").val().trim();
  //  let weather= $("#weather").val().trim()
    localStorage.setItem("start", start); 
    localStorage.setItem("end", end); 
@@ -49,13 +49,14 @@ $.ajax({
 let startCordLS = localStorage.getItem("startCord"); 
 let endCordLS = localStorage.getItem("endCord"); 
 console.log(startCordLS + " " + endCordLS);
-routeURL = "https://api.mapbox.com/directions/v5/mapbox/cycling/" + startCordLS + ";" + endCordLS + "?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
+routeURL = "https://api.mapbox.com/directions/v5/mapbox/cycling/" + startCordLS + ";" + endCordLS + "?steps=true&access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
 $.ajax({
   url: routeURL, 
   method: "GET"
 }).then(function(response){
 //displaycode here
-console.log(response); 
+//need a four loop that cycles through steps - that displays the step by step
+console.log(response.routes[0].legs[0].steps[2].maneuver.instruction); 
 }); 
 
 //}
