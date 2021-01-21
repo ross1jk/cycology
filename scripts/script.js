@@ -7,19 +7,19 @@ inputEnd
 weather
 */
 
-// $("#searchBtn").click(function() {
-//    let start= $("#inputStart").val().trim();
-//    let end= $("#inputEnd").val().trim();
-//    let weather= $("#weather").val().trim()
-//    localStorage.setItem("start", start); 
-//    localStorage.setItem("end", end); 
+$("#searchBtn").click(function() {
+   let start=  $("#inputStart").val().trim();
+   let end= $("#inputEnd").val().trim();
+ //  let weather= $("#weather").val().trim()
+   localStorage.setItem("start", start); 
+   localStorage.setItem("end", end); 
 //    localStorage.setItem("weater", weather)
-//  });
+  });
 
 //geocode to get longitutde and latitude 
 //function findCoordinates(){
-let getstart = "Gardenia Ave, Royal Oak MI" //localStorage.getItem("start");
-let getend =  "Main St., Royal Oak MI" //localStorage.getItem("end")
+let getstart =  localStorage.getItem("start");
+let getend =  localStorage.getItem("end")
 let startCord = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + getstart + ".json?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
 let endCord = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + getend + ".json?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
 
