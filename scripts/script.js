@@ -56,7 +56,12 @@ $.ajax({
 }).then(function(response){
 //displaycode here
 //need a four loop that cycles through steps - that displays the step by step
-console.log(response.routes[0].legs[0].steps[2].maneuver.instruction); 
+
+  console.log(response.routes[0].legs[0].steps[0].maneuver.instruction + response.routes[0].legs[0].steps[1].maneuver.instruction + response.routes[0].legs[0].steps[3].maneuver.instruction ); 
+ 
+
+
+
 }); 
 
 //}
