@@ -73,7 +73,7 @@ $.ajax({
 
 //creating the map 
 
-
-
+let mapurl = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/"+ localStorage.getItem("startCord") +",14.25,0,60/600x600?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
+console.log(mapurl); 
 //end of start function 
 }); 
