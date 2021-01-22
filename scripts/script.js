@@ -64,11 +64,15 @@ $.ajax({
  let pos = 0; 
  console.log(loopInstructions); 
  for (var i = 0; i < loopInstructions.length; i++){
-  let routeInstructions = "<ul>" + loopInstructions[pos].maneuver.instruction + "</ul>"
+  let number = i + 1; 
+  let routeInstructions = "<ul>" + number + ": " + loopInstructions[pos].maneuver.instruction + "</ul>"
   pos++; 
   $("#routeInstructions").append(routeInstructions);
  }
 }); 
+
+//creating the map 
+
 
 
 //end of start function 
