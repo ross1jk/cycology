@@ -64,12 +64,10 @@ $.ajax({
  let pos = 0; 
  console.log(loopInstructions); 
  for (var i = 0; i < loopInstructions.length; i++){
-  let routeInstructions = loopInstructions[pos].maneuver.instruction; 
+  let routeInstructions = "<ul>" + loopInstructions[pos].maneuver.instruction + "</ul>"
   pos++; 
-  console.log(routeInstructions); 
+  $("#routeInstructions").append(routeInstructions);
  }
- //localStorage.setItem("stepbystep", JSON.stringify(tripInstructions[0])); 
- // console.log(response.routes[0].legs[0].steps[0].maneuver.instruction + response.routes[0].legs[0].steps[1].maneuver.instruction + response.routes[0].legs[0].steps[3].maneuver.instruction ); 
 }); 
 
 
