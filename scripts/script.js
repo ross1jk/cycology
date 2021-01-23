@@ -26,6 +26,8 @@ let endCord = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + getend + ".
    let startlat = response.features[0].geometry.coordinates[1]; 
    console.log("Start" + startlon + "," + startlat);
    localStorage.setItem("startCord", startlon + "," + startlat); 
+   localStorage.setItem("weatherLon", startlon);
+   localStorage.setItem("weatherLat", startlat);
  });
 
 $.ajax({
