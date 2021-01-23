@@ -7,6 +7,7 @@ $("#searchBtn").click(function() {
    localStorage.setItem("start", start); 
    localStorage.setItem("end", end); 
    findCoordinates(); 
+   location.href = "ResultsPage.html";
 });
 
 //geocode to get longitutde and latitude 
