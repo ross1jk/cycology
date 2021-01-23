@@ -1,0 +1,17 @@
+#toprow{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#SaveRouteButton{
+    margin-top: 20px; 
+}
+
+#WeatherDisplay{
+    margin-top: 20px; 
+}
+
+#map {
+    text-align: center;
+    margin-top: 50px; 
+}
