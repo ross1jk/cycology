@@ -23,7 +23,7 @@
  <div class="grid-container">
     <div class="grid-x grid-padding-x" id="toprow">
         <div class="cell medium-2" style="text-align: center">
-            <button id="SaveRouteButton" type="button" class="button">Save Route</button>
+            <button id="SaveRouteButton" type="button" class="button" onclick="saveRoute()">Save Route</button>
             <!--<button id="SaveRouteButton" style="background-color: darkorange;" type="button" class="success button">Rate
                 Route</button> -->
         </div>
@@ -48,6 +48,13 @@
     <script>$(document).foundation();</script>
     <script src="scripts/script.js"></script>
     <script src="scripts/weather.js"></script>
+    <script>
+        function saveRoute() {
+            localStorage.routeUrl = window.location.href;
+            console.log(localStorage.routeUrl)
+        }
+    
+    </script>
 
 </body>
 
