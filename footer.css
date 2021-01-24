@@ -1,0 +1,32 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    background: #1779ba;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    color: white; 
+    text-align: center
+}
+.content{
+    margin-top: 10px; 
+}
+
+#github {
+    color: white; 
+    padding: 10px; 
+    font-size: 20px;
+}
+
+#logo{
+    color: white; 
+    padding: 15px;
+    font-size: 20px;
+}
+
