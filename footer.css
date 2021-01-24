@@ -3,19 +3,23 @@ html, body {
 }
 #wrapper {
     min-height: 100%;
-    height: auto !important;
+    height: auto; 
     height: 100%;
-    margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -40px; 
 }
-
-.footer, .push {
+.push{
+    height: 40px;
+    width: 100%;
+    color: white; 
+    text-align: center;  
+}
+.footer {
     background: #1779ba;
     height: 40px;
     width: 100%;
     color: white; 
     text-align: center; 
 }
-
 
 #github {
     color: white; 
