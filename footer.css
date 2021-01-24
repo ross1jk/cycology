@@ -1,24 +1,29 @@
 html, body {
     height: 100%;
 }
+
 #wrapper {
     min-height: 100%;
     height: auto; 
     height: 100%;
     margin: 0 auto -40px; 
 }
+
 .push{
     height: 40px;
     width: 100%;
     color: white; 
     text-align: center;  
 }
+
 .footer {
     background: #1779ba;
     height: 40px;
     width: 100%;
     color: white; 
     text-align: center; 
+    position: fixed;
+    bottom: 0; 
 }
 
 #github {
