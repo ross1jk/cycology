@@ -1,22 +1,21 @@
-html {
-    position: relative;
+html, body {
+    height: 100%;
+}
+#wrapper {
     min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
 }
 
-footer {
-    position: absolute;
+.footer, .push {
     background: #1779ba;
-    left: 0;
-    bottom: 0;
-    height: 50px;
+    height: 40px;
     width: 100%;
-    overflow: hidden;
     color: white; 
-    text-align: center
+    text-align: center; 
 }
-.content{
-    margin-top: 10px; 
-}
+
 
 #github {
     color: white; 
