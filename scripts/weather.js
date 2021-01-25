@@ -6,18 +6,22 @@ console.log(getLon);
 
 //Function to call the Weather API & append the temperature to the Results Page
 function displayWeather(latitude, longtitude) {
-  var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longtitude + "&exclude=daily,minutely,hourly,alerts&units=imperial&appid=5c129ef837e1ef5705b4d65b13979ba1"
+  var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longtitude + "&exclude=current,minutely,hourly,alerts&units=imperial&appid=5c129ef837e1ef5705b4d65b13979ba1"
 console.log(queryURL);
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    var temp = response.current.temp;
+    var currentTemp = response["daily"][0]["temp"]["day"];
+    
+
+    console.log(currentTemp);
     //document.getElementById("#WeatherDisplay").append(temp);
-    $("#WeatherDisplay").append(temp);
+    $("#CurrentWeatherDisplay").append(" " + currentTemp + "°");
   }
 
   )
 };
 
 window.onload = displayWeather(getLat, getLon);
+
