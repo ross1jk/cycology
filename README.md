@@ -1,4 +1,4 @@
-# Cycling Route Project Need Name. 
+# Cycle-ology
 
 ## Description
 
@@ -11,7 +11,7 @@ For basic layouts and styling, foundation was used.
 
 ## User Story
 
-This APPLICATION was designed to meet the following user story:
+Cycle-ology was designed to meet the following user story:
 
 ```
 As a cyclist I want to be able to select a cycling route so that I can find new locations to bike 
@@ -78,6 +78,12 @@ This page consists of an empty div that is populated through local storage to di
 
 ## CSS 
 
+**resultspage.css** This CSS file provides styling to the reuslts page for a overall clean look. 
+
+**footer.css** This page is used to style the footer on each page. The footer is fixed to the bottom of the page displayed, updated dynamically depending on the page size, and contains links to our githubs and github repo.
+
+**search-element-style** this is used to style the navbar of each page. 
+
 ## jQuery / JavaScript
 
 ### Functions
@@ -94,8 +100,10 @@ This page consists of an empty div that is populated through local storage to di
 
 **mapurl** uses stored long and lat, to set to add to mapbox url, then displays map on ResultsPage.html
 
-**Weather**
+**Weather** uses stored long and lat, to get the upcoming weather for upcoming day. displays to ResultsPage.html
 
 ### Event Listeners / Buttons 
 
 **searchBtn**  saves start location, end location, and date to local storage 
+
+**SaveRouteButton** saves the last route searched 
