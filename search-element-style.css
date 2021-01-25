@@ -169,5 +169,7 @@
     border: 0;
     box-shadow: none;
   }
-  
-  
+
+  #homeimg{
+    height: 40%;
+  }
