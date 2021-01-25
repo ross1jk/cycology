@@ -28,8 +28,8 @@
         <!--call out sample of what we can append our routes to once they are saved-->
           <div class="callout" id="savedRoutes">
             <h4 id="route">Route</h4>
-            <p id="start">Start:</p>
-            <p id="end">End: </p>
+            <p id="routeString"> </p>
+            <img id="routeMap" src="" width=250px height=150px>
           </div>
 
      
@@ -55,7 +55,9 @@
 
       for (var i = 0, len = localStorage.length; i < len; ++i) {
         console.log(localStorage.getItem(localStorage.key(i)));
-        document.getElementById("start").innerHTML = localStorage.routeUrl;
+        document.getElementById("routeString").innerHTML = localStorage.savedRoute;
+        document.getElementById("routeMap").src = localStorage.savedMap;
+
       }
     </script>
   </body>

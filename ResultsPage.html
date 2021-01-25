@@ -66,8 +66,10 @@
     <script src="scripts/weather.js"></script>
     <script>
         function saveRoute() {
-            localStorage.routeUrl = window.location.href;
-            console.log(localStorage.routeUrl)
+            localStorage.savedRoute = localStorage.start + " to " + localStorage.end;
+            localStorage.savedMap = localStorage.map
+            console.log(localStorage.savedRoute)
+            console.log(localStorage.savedMap)
         }
     
     </script>
