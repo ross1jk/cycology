@@ -74,6 +74,7 @@ $.ajax({
 //creating the map 
 let mapurl = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(" + localStorage.getItem("startCord") + "),pin-s-b+000(" + localStorage.getItem("endCord") + ")/auto/500x300?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
 console.log(mapurl); 
+localStorage.map = mapurl
 let displaymap = "<img src='" + mapurl+"' alt='routeInstructions'>"
 $("#map").append(displaymap); 
 
