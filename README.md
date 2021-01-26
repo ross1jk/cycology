@@ -33,7 +33,7 @@ Access the deployed application at: https://romerodi.github.io/cycle-ology/searc
 The following image shows the application’s basic functionality:
 
 Search Page: ![searchpage](./images/search.png)
-Route Display: ![routedisplay](./images/routedisplay.png)
+Route Display: ![routedisplay](./images/routedispaly.png)
 Saved Routes: ![savedroutes](./images/savedroutes.png)
 
 ## Wire Frame
