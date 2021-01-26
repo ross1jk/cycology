@@ -2,7 +2,10 @@
 
 ## Description
 
-People who live an active lifestyle either have a hard time finding routes or remembering routes they have taken before. This application, enables cyclists to enter a start and end destination and have a route created for them with step by step instructions. The cyclist will also select a date that they intend to take the route. This will present weather on the day in question (up to 7 days).  If the cyclist enjoys the route they are able to save it and review it at a later date. 
+People who live an active lifestyle either have a hard time finding routes or remembering routes they have taken before. This application, enables cyclists to enter a start and end destination and have a cycle-friendly route created for them with step by step instructions. 
+
+The cyclist will also be given a weather forecast for the current day, so they can choose the best conditions to ride in.  If the cyclist enjoys the route they are able to save it and review it at a later date. 
+
 This application is updated dynamically using HTML, CSS and JavaScript/jQuery functionality. 
 To access instructions, Map Box API was utilized: [MapBox API](https://docs.mapbox.com/api/overview/)  In order to gain access to weather, Open Weather Map was utilized. [OpenWeather API](https://openweathermap.org/api)
 
@@ -14,31 +17,32 @@ For basic layouts and styling, foundation was used.
 Cycle-ology was designed to meet the following user story:
 
 ```
-As a cyclist I want to be able to select a cycling route so that I can find new locations to bike 
-As a cyclist I want to know the weather the day I ride so that I can prepare properly
-As a cyclist  I want to leave a review of my route so that I can reflect on it later or others can use it 
-As a cyclist I want to save a route so that ride it later 
+As a cyclist I want to be able to select a cycling route so that I can find new locations to bike 
+As a cyclist I want bike friendly routes so that I can have customized instructions for biking
+As a cyclist I want to know the weather the day I ride so that I can prepare properly
+As a cyclist I want to save my route so that I can take it again later 
+ 
 ```
 
-## Pre-deployment Notes 
-
-None Yet
-
 ## Deployed Application
-None Yet 
 
-Access the deployed application at: Not active Yet
+Access the deployed application at: https://romerodi.github.io/cycle-ology/search-element 
 
 ## Mock-Up
 
 The following image shows the application’s basic functionality:
 
-## Special Notes for Consideration
-None Yet 
+Search Page: ![searchpage](./images/search.png)
+Route Display: ![routedisplay](./images/routedisplay.png)
+Saved Routes: ![savedroutes](./images/savedroutes.png)
 
 ## Wire Frame
+
 Access the wire frame we utilized for planning at: [Miro](https://miro.com/welcomeonboard/HTJ4TviMugWkwy4R2McWWslBklyGJI3BWfBQeokBmWAjRJbCDH5RAYV7oNL0yHzM)
 
+## Group Presentation
+
+View our project presnetation at: https://docs.google.com/presentation/d/1yNftxc7JPVH8dqJcKom2ABU-CCicM2JJ9L4jGWHSaoA/edit?usp=sharing 
 
 # Cycling Application Break Down
 
@@ -84,6 +88,8 @@ This page consists of an empty div that is populated through local storage to di
 
 **search-element-style** this is used to style the navbar of each page. 
 
+**saved.css** this styled the saved routes page to be more visually appealing. 
+
 ## jQuery / JavaScript
 
 ### Functions
@@ -91,6 +97,8 @@ This page consists of an empty div that is populated through local storage to di
 **findCoordinates** uses geocoding to get longitude and latitude for cycling directions sets to local storage for later use
 
 **createRoute** Creates a route using mapbox api 
+
+**savedroutes** stores the saved routes and displays to html page- saved routes
 
 ### API
 
