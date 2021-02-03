@@ -115,3 +115,9 @@ This page consists of an empty div that is populated through local storage to di
 **searchBtn**  saves start location, end location, and date to local storage 
 
 **SaveRouteButton** saves the last route searched 
+
+## Project Contributors
+
+Diego Romero: https://github.com/romerodi,
+Jacqueline Ross: https://github.com/ross1jk, 
+Matt Williams: https://github.com/onlymattwill515
