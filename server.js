@@ -18,10 +18,10 @@ app.use(express.static("public"));
 // app.use(favicon(path.join(__dirname, "./public/assets/img/favicon.png")));
 
 // Requiring our routes
-const htmlRoutes = require("./routes/html-routes");
-const apiRoutes = require("./routes/api-routes");
-htmlRoutes(app); 
-apiRoutes(app); 
+// const htmlRoutes = require("./routes/html-routes");
+// const apiRoutes = require("./routes/api-routes");
+// htmlRoutes(app); 
+// apiRoutes(app); 
 
 
 // Syncing our database and logging a message to the user upon success
