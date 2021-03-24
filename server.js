@@ -17,7 +17,6 @@ app.use(express.static("public"));
 // favicon invoked - need to add the correct image if useing 
 // app.use(favicon(path.join(__dirname, "./public/assets/img/favicon.png")));
 
-
 // Requiring our routes
 const htmlRoutes = require("./routes/html-routes");
 const apiRoutes = require("./routes/api-routes");
