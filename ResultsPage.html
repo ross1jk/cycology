@@ -4,75 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycle-ology</title>
+    <title>Route Search</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/search-element-style.css">
-    <link rel="stylesheet" href="./styles/resultspage.css">
-    <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="search-element-style.css">
+    <link rel="stylesheet" href="resultspage.css">
 </head>
 
 <body>
-   <header>
+    <header>
         <ul class="menu menu-hover-lines">
-            <li class="active"><a href="#">Cycle-ology</a></li>
+            <li class="active"><a href="#">Cycle Project</a></li>
             <li><a href="search-element.html">Home</a></li>
             <li><a href="savedroutes.html">Saved Routes</a></li>
-          </ul>
-       </header>
+        </ul>
+    </header>
 
- <div class="grid-container" id="wrapper">
-    <div class="grid-x grid-padding-x" id="toprow">
-        <div class="cell medium-2" style="text-align: center">
-            <button id="SaveRouteButton" type="button" class="button" onclick="saveRoute()">Save Route</button>
-            <!--<button id="SaveRouteButton" style="background-color: darkorange;" type="button" class="success button">Rate
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x" id="toprow">
+            <div class="cell medium-5" style="text-align: center">
+                <button id="SaveRouteButton" type="button" class="button large">Save Route</button>
+                <!--<button id="SaveRouteButton" style="background-color: darkorange;" type="button" class="success button">Rate
                 Route</button> -->
+            </div>
+
+            <div class="cell medium-1">
+                <div id="temp">
+                    <p id="currentDate"></p>
+                    <img class="weatherimg" id="icon" src="" alt="Weather Icon">
+                    <p id="temperature"></p>
+                </div>
+            </div>
+
+            <div class="cell medium-1">
+                <div id="temp">
+                    <p id="day1"></p>
+                    <img class="weatherimg" id="icon1" src="" alt="Weather Icon">
+                    <p id="temp1"></p>
+                </div>
+            </div>
+
+            <div class="cell medium-1">
+                <div id="temp">
+                    <p id="day2"></p>
+                    <img class="weatherimg" id="icon2" src="" alt="Weather Icon">
+                    <p id="temp2"></p>
+                </div>
+            </div>
+
+            <div class="cell medium-1">
+                <div id="temp">
+                    <p id="day3"></p>
+                    <img class="weatherimg" id="icon3" src="" alt="Weather Icon">
+                    <p id="temp3"></p>
+                </div>
+            </div>
+
+            <div class="cell medium-1">
+                <div id="temp">
+                    <p id="day4"></p>
+                    <img class="weatherimg" id="icon4" src="" alt="Weather Icon">
+                    <p id="temp4"></p>
+                </div>
+            </div>
+
         </div>
-      
-        <div class="cell auto">
-            <figure id="CurrentWeatherDisplay">Today's High</figure>
 
-
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-7">
+                <figure id="map"> </figure>
+            </div>
+            <div class="cell medium-4">
+                <p id="routeInstructions"></p>
+            </div>
         </div>
     </div>
-    <div class="grid-x grid-padding-x" id="currentroutedisplay">
-        <div class="cell medium-7">
-            <figure id="map">  </figure>
-        </div>
-        <div class="cell medium-4">
-            <p id="routeInstructions"></p>
-        </div>
-    </div>
-
-    <div class="push"></div>
-</div>
-
-    <!--Footer-->
-    <footer class="footer">
-        <div class="content">
-        <a href="https://github.com/romerodi" id="github"><i class="fab fa-github"></i> Diego Romero</a>
-        <a href="https://github.com/ross1jk" id="github"><i class="fab fa-github"></i> Jacqueline Ross</a>
-        <a href="https://github.com/onlymattwill515" id="github"><i class="fab fa-github"></i> Matt Williams</a>
-        <a href="https://github.com/romerodi/cycleproject" id="logo"><i class="fas fa-bicycle"></i></a>
-        </div>
-     </footer>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <script>$(document).foundation();</script>
     <script src="scripts/script.js"></script>
     <script src="scripts/weather.js"></script>
-    <script>
-        function saveRoute() {
-            localStorage.savedRoute = localStorage.start + " to " + localStorage.end;
-            localStorage.savedMap = localStorage.map
-            console.log(localStorage.savedRoute)
-            console.log(localStorage.savedMap)
-        }
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>        function saveRoute() {
+        localStorage.savedRoute = localStorage.start + " to " + localStorage.end;
+        localStorage.savedMap = localStorage.map
+        console.log(localStorage.savedRoute)
+        console.log(localStorage.savedMap)
+    }
     </script>
 
 </body>
