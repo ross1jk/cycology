@@ -13,7 +13,7 @@ const Route = sequelize.define("Route", {
     allowNull: false,
   },
   route_rating: {
-    type: Sequelize.INT,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
   comments: {
