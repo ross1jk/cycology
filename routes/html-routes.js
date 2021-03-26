@@ -6,11 +6,7 @@ module.exports = (app) => {
     res.render("index")
     ); 
 
-    app.get('/searchedroute',(req, res) =>
-    res.sendFile(path.join(__dirname, '../public/ResultsPage.html'))
-    );
-
-    app.get('/savedroutes',(req, res) =>
-    res.sendFile(path.join(__dirname, '../public/savedroutes.html'))
+    app.get('/route',(req, res) =>
+    res.render("userresults")
     );
 }; 
