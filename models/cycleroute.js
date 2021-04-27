@@ -1,26 +1,23 @@
-// Sequelize (capital) references the standard library
-const Sequelize = require("sequelize");
-// Sequelize (lowercase) references our connection to the DB.
-const sequelize = require("../config/connection.js");
+module.exports = (sequelize, DataTypes) => {
 
 const Route = sequelize.define("Route", {
   start_location: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   end_location: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   route_rating: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
+    type: DataTypes.STRING,
+    allowNull: true,
   },
   comments: {
-    type: Sequelize.TEXT,
+    type: DataTypes.TEXT,
     allowNull: true,
   },
 });
+return Route;
 
-Route.sync();
-module.exports = Route;
+};

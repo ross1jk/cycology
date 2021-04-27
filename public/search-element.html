@@ -8,8 +8,8 @@
     <title>Cycle-ology</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/styles/footer.css">
-    <link rel="stylesheet" href="./assets/styles/search-element-style.css"> 
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="/styles/search-element-style.css"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
 </head>
 
@@ -25,17 +25,19 @@
    <div id="wrapper">
     <header class="hero-search-filter">
         <div class="hero-search-filter-content">
-          <img class="hero-search-filter-logo" id="homeimg" src="./assets/images/man-33591_1280.png" alt="bikingman" />
-          <form class="hero-search-filter-form" action="">
+          <img class="hero-search-filter-logo" id="homeimg" src="./images/man-33591_1280.png" alt="bikingman" />
+          
+          <form class="hero-search-filter-form" method="POST">
             <label for="inputStart">Start</label>
             <input id="inputStart" class="hero-search-filter-form-find" type="text" placeholder="road, city, state" />
             <div class="divider">&nbsp;</div>
             <label for="inputEnd">Finish</label>
             <input id="inputEnd" class="hero-search-filter-form-near" type="text" placeholder="road, city, state" />
             <div class="divider">&nbsp;</div>
-            <button class="button" id="searchBtn"><i class="fa fa-search"></i>Search</button> 
- 
+            <button class="button" type="submit" id="searchBtn"><i class="fa fa-search"></i>Search</button> 
           </form>
+
+
         </div>
       </header>
 
@@ -55,8 +57,8 @@
       <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
           integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
       <script>$(document).foundation();</script>
-      <script src="./assets/js/script.js"></script>
-      
+      <script src="js/script.js"></script>
+    
 </body>
 
 </html>

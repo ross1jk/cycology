@@ -7,8 +7,8 @@
     <title>Route Search</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/styles/search-element-style.css">
-    <link rel="stylesheet" href="./assets/styles/resultspage.css">
+    <link rel="stylesheet" href="./styles/search-element-style.css">
+    <link rel="stylesheet" href="./styles/resultspage.css">
 </head>
 
 <body>
@@ -23,11 +23,14 @@
     <div class="grid-container">
         <div class="grid-x grid-padding-x" id="toprow">
             <div class="cell medium-5" style="text-align: center">
+                <p id="startDisplay"></p>
+                <p id="endDisplay"></p>
                 <button id="SaveRouteButton" type="button" class="button large">Save Route</button>
                 <!--<button id="SaveRouteButton" style="background-color: darkorange;" type="button" class="success button">Rate
                 Route</button> -->
             </div>
 
+            <!-- Weather -->
             <div class="cell medium-1">
                 <div id="temp">
                     <p id="currentDate"></p>
@@ -69,11 +72,12 @@
             </div>
 
         </div>
-
+        <!-- Map -->
         <div class="grid-x grid-padding-x">
             <div class="cell medium-7">
                 <figure id="map"> </figure>
             </div>
+            <!-- route instructions -->
             <div class="cell medium-4">
                 <p id="routeInstructions"></p>
             </div>
@@ -83,15 +87,15 @@
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <script>$(document).foundation();</script>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/weather.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/weather.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>        function saveRoute() {
-        localStorage.savedRoute = localStorage.start + " to " + localStorage.end;
-        localStorage.savedMap = localStorage.map
-        console.log(localStorage.savedRoute)
-        console.log(localStorage.savedMap)
-    }
+            localStorage.savedRoute = localStorage.start + " to " + localStorage.end;
+            localStorage.savedMap = localStorage.map
+            console.log(localStorage.savedRoute)
+            console.log(localStorage.savedMap)
+        }
     </script>
 
 </body>
