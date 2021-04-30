@@ -16,7 +16,7 @@ module.exports = (app) => {
             route_rating: "",
             comments: "",
         }).then((dbRoute) => {
-            console.log(dbRoute); 
+            console.log(dbRoute.dataValues); 
         }); 
-    })
+    });
 }

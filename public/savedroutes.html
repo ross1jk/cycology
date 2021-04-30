@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cycle-ology</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/styles/search-element-style.css">
-    <link rel="stylesheet" href="./assets/styles/footer.css">
+    <link rel="stylesheet" href="./styles/search-element-style.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="./assets/styles/saved.css">
+    <link rel="stylesheet" href="./styles/saved.css">
   </head>
   <body>
     <!--NavBar-->
@@ -25,15 +25,9 @@
         <div class="grid-x grid-margin-x">
             <div class="cell auto"><h1>My Saved Routes</h1></div>
         </div>
-        
-        <!--call out sample of what we can append our routes to once they are saved-->
-          <div class="callout" id="savedRoutes">
-            <p id="routeString"> </p>
-            <img id="routeMap" src="" width=250px height=150px>
-          </div>
-
      
-    <div class="push"></div>
+    <div id="push"></div>
+    
     <!--end of conainer div-->    
   </div>
     
@@ -51,14 +45,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <script>$(document).foundation();</script>
-    <script>
-
-      for (var i = 0, len = localStorage.length; i < len; ++i) {
-        console.log(localStorage.getItem(localStorage.key(i)));
-        document.getElementById("routeString").innerHTML = localStorage.savedRoute;
-        document.getElementById("routeMap").src = localStorage.savedMap;
-
-      }
-    </script>
+    <script src="./js/savedroutes.js"></script>
   </body>
 </html>
