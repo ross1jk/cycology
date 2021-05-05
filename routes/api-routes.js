@@ -8,7 +8,7 @@ module.exports = (app) => {
         })
     });
 
-    app.post("/api/routes", (req, res) => {
+    app.post("/", (req, res) => {
         console.log(req.body); 
         db.Route.create({
             start_location: req.body.start_location,
@@ -16,7 +16,19 @@ module.exports = (app) => {
             route_rating: "",
             comments: "",
         }).then((dbRoute) => {
-            console.log(dbRoute.dataValues); 
+            console.log(dbRoute.dataValues);
+            res.render("/route", {
+                route: dbRoute.dataValues
+            }); 
         }); 
     });
+
+    app.get("/saved", (req, res) => {
+        db.Route.findAll({}).then((route) => {
+        res.render("savedroutes", {
+            title: "SavedRoutes",
+            route: route
+        })
+    })
+})
 }

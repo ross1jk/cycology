@@ -9,19 +9,22 @@ $(document).ready(() => {
       end_location: end_locationInput.val().trim(),
     };
 
-    console.log(userRoute)
-
     $.ajax({
       url: "/api/routes",
       data: userRoute,
       type: "POST",
       dataType: "json",
       success: findCoordinates()
-    })
+      }
+    )
 
   });
 
-
+  function displayInfo(){
+    console.log("from function above"  + userRoute)
+    $("#startDisplay").append(userRoute.start_location)
+    $("#endDisplay").append(userRoute.end_location)
+    findCoordinates()}
   //geocode to get longitutde and latitude
   function findCoordinates() {
     let getstart = localStorage.getItem("start");

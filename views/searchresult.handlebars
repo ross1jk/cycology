@@ -1,0 +1,66 @@
+<div class="cell medium-5" style="text-align: center">
+    <p id="startDisplay">{{route.start_location}}</p>
+    <p id="endDisplay">{{route.end_location}}</p>
+    <button id="SaveRouteButton" type="button" class="button large">Save Route</button>
+    <!--<button id="SaveRouteButton" style="background-color: darkorange;" type="button" class="success button">Rate
+                Route</button> -->
+</div>
+
+<!-- Weather -->
+<div class="cell medium-1">
+    <div id="temp">
+        <p id="currentDate"></p>
+        <img class="weatherimg" id="icon" src="" alt="Weather Icon">
+        <p id="temperature"></p>
+    </div>
+</div>
+
+<div class="cell medium-1">
+    <div id="temp">
+        <p id="day1"></p>
+        <img class="weatherimg" id="icon1" src="" alt="Weather Icon">
+        <p id="temp1"></p>
+    </div>
+</div>
+
+<div class="cell medium-1">
+    <div id="temp">
+        <p id="day2"></p>
+        <img class="weatherimg" id="icon2" src="" alt="Weather Icon">
+        <p id="temp2"></p>
+    </div>
+</div>
+
+<div class="cell medium-1">
+    <div id="temp">
+        <p id="day3"></p>
+        <img class="weatherimg" id="icon3" src="" alt="Weather Icon">
+        <p id="temp3"></p>
+    </div>
+</div>
+
+<div class="cell medium-1">
+    <div id="temp">
+        <p id="day4"></p>
+        <img class="weatherimg" id="icon4" src="" alt="Weather Icon">
+        <p id="temp4"></p>
+    </div>
+</div>
+
+</div>
+<!-- Map -->
+<div class="grid-x grid-padding-x">
+    <div class="cell medium-7">
+        <figure id="map"> </figure>
+    </div>
+    <!-- route instructions -->
+    <div class="cell medium-4">
+        <p id="routeInstructions"></p>
+    </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+    integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+<script>$(document).foundation();</script>
+<script src="/assets/js/script.js"></script>

@@ -1,0 +1,16 @@
+<div>
+    <h1>My Saved Routes</h1>
+</div>
+
+{{#each route}}
+<div class="card" id={{dataValues.id}}>
+    <div class="card-body">
+        <p>Start: {{dataValues.start_location}} </p>
+        <p>End: {{dataValues.end_location}} </p>
+        <p>Route Rating: {{dataValues.route_rating}}</p>
+        <p>Comments: {{dataValues.comments}}</p>
+    </div>
+</div>
+{{/each}}
+
+<script src="/assets/js/savedroutes.js"></script>
