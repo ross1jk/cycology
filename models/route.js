@@ -1,5 +1,4 @@
 module.exports = (sequelize, DataTypes) => {
-
 const Route = sequelize.define("Route", {
   start_location: {
     type: DataTypes.STRING,
@@ -8,16 +7,9 @@ const Route = sequelize.define("Route", {
   end_location: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  route_rating: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  comments: {
-    type: DataTypes.TEXT,
-    allowNull: true,
-  },
-});
-return Route;
-
+  }
+}, {});
+Route.associate = function(models) { 
+  Route.belongsToMany(models.User, { through: 'UsersRoutes', foreignKey: 'routeId', as: 'routeId' }) };
+  return Route; 
 };
