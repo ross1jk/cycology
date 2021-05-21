@@ -1,32 +1,29 @@
-// Requiring necessary npm packages
+// npm packages and configured server items 
 const express = require("express");
+const session = require("express-session");
+const passport = require("./config/passport");
+const routes = require("./routes");
 
-// Set Handlebars.
-const exphbs = require("express-handlebars");
-
-// Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
-// Creating express app
+// Express App
 const app = express();
-app.use(express.urlencoded({
-  extended: true
-}));
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+if (process.env.NODE_ENV === "production") { app.use(express.static("client/build")); }
 
+// Passport 
+app.use(session({ 
+  secret: "keyboard cat", 
+  resave: false, 
+  saveUninitialized: false 
+}));
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-
-// Requiring our routes
-
-const htmlRoutes = require("./routes/html-routes");
-const apiRoutes = require("./routes/api-routes");
-htmlRoutes(app); 
-apiRoutes(app); 
-app.use(express.static("public"));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(routes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
