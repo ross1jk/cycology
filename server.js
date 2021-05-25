@@ -1,37 +1,28 @@
-// npm packages and configured server items 
 const express = require("express");
-const session = require("express-session");
-const passport = require("./config/passport");
+const mongoose = require("mongoose"); 
 const routes = require("./routes");
-
-const PORT = process.env.PORT || 3001;
-const db = require("./models");
-
-// Express App
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-if (process.env.NODE_ENV === "production") { app.use(express.static("client/build")); }
 
-// Passport 
-app.use(session({ 
-  secret: "keyboard cat", 
-  resave: false, 
-  saveUninitialized: false 
-}));
+if (process.env.NODE_ENV === "production") { 
+  app.use(express.static("client/build")); 
+}
 
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(routes);
 
-// Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(
-      "==> :earth_americas:  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/googlebookshelf", 
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
+
+app.listen(PORT, function() {
+  console.log(`Now listening on PORT ${PORT}!`);
 });

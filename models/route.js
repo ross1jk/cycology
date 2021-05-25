@@ -1,15 +1,13 @@
-module.exports = (sequelize, DataTypes) => {
-const Route = sequelize.define("Route", {
-  start_location: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  end_location: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  }
-}, {});
-Route.associate = function(models) { 
-  Route.belongsToMany(models.User, { through: 'UsersRoutes', foreignKey: 'routeId', as: 'routeId' }) };
-  return Route; 
-};
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema; 
+
+const routeSchema = new Schema({
+  start_location: { type: String, required: true },
+  end_location: { type: String, required: true},
+  review: { type: String },
+  rating: { type: Number, default: 0 }
+});
+
+const Route = mongoose.model("Route", routeSchema);
+
+module.exports = Route; 

@@ -1,16 +1,32 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import { UserProvider } from "./contexts/UserContext";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SavedRoutes from "./pages/SavedRoutes";
+import SearchRoutes from "./pages/SearchRoutes";
+import ViewRoute from "./pages/ViewRoute";
 
 function App() {
 
 
   return (
     <Router>
-      <UserProvider>
-        <Route exact path="/" component={Home} />
-      </UserProvider>
+      <div>
+        {/* NAV */}
+        <Switch>
+
+          <Route exact path={["/", "/search"]}>
+            <SearchRoutes />
+          </Route>
+
+          <Route exact path={"/saved"}>
+            <SavedRoutes />
+          </Route>
+
+          <Route exact path={"/viewroute"}>
+            <ViewRoute />
+          </Route>
+
+        </Switch>
+      </div>
     </Router>
   );
 }

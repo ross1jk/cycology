@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS cycology;
-CREATE DATABASE cycology;
