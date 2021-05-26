@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/routes/");
   },
   // create new routes
-  createRoutes: function(userData) {
-    return axios.post("/api/routes/", userData)
+  createRoutes: function(userRoute) {
+    return axios.post("/api/routes", userRoute)
   }
 }

@@ -4,7 +4,7 @@ import API from "../utils/API";
 import { Container } from "../components/Grid";
 
 function Search() {
-    const [route, setRoute] = useState("")
+    const [route, setRoute] = useState([])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -17,6 +17,7 @@ function Search() {
             start_location: route.start_location,
             end_location: route.end_location,
         })
+        .catch(err => console.log(err))
     };
 
     return (
@@ -27,14 +28,14 @@ function Search() {
                         value={route.start_location}
                         onChange={handleInputChange}
                         type="text"
-                        name="startLocation"
+                        name="start_location"
                         placeholder="Road, City, State"
                     />
                     <Input
                         value={route.end_location}
                         onChange={handleInputChange}
                         type="text"
-                        name="endLocation"
+                        name="end_location"
                         placeholder="Road, City, State"
                     />
                     <button type="submit" className="btn btn-light" id="submit">Search Routes</button>
