@@ -21,11 +21,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^5.0.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.12.11",
-    "react": "^17.0.2",
-    "react-materialize": "^3.9.8"
+    "react": "^17.0.2"
   }
 }

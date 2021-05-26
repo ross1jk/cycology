@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SavedRoutes from "./pages/SavedRoutes";
 import SearchRoutes from "./pages/SearchRoutes";
 import ViewRoute from "./pages/ViewRoute";
+import Nav from "./components/Nav";
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
   return (
     <Router>
       <div>
-        {/* NAV */}
+      <Nav />
         <Switch>
 
           <Route exact path={["/", "/search"]}>
