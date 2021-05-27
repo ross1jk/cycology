@@ -22,10 +22,9 @@ function ReviewCard(props) {
                                 stroke={'#DEAD85'}
                             />
 
-
                             <div className="dropdown">
                                 <button className="btn btn-dark dropdown-toggle" type="button" id="starRating" data-bs-toggle="dropdown" aria-expanded="false">
-                                    ⭐️ Rating
+                                    Rating
                              </button>
                                 <div className="dropdown-menu" aria-labelledby="starRating">
                                     <li><button className="dropdown-item" id="star1" type="button" value="1" onClick={props.star1}>1</button></li>
@@ -37,7 +36,7 @@ function ReviewCard(props) {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="exampleFormControlTextarea1" className="whatdidyouthink">What did you think of the book?</label>
+                                <label htmlFor="exampleFormControlTextarea1">What did you think of the route?</label>
                                 <textarea className="form-control" id="exampleFormControlTextarea1" onChange={props.onChange} rows="3" placeholder={props.placeholder}></textarea>
                             </div>
                             <div className="save">

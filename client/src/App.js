@@ -22,7 +22,7 @@ function App() {
             <SavedRoutes />
           </Route>
 
-          <Route exact path={"/viewroute"}>
+          <Route exact path={"/viewroute/:id"}>
             <ViewRoute />
           </Route>
 
