@@ -7,11 +7,10 @@ import { Container, Row, Col } from "../components/Grid";
 
 function ViewRoute() {
     const [currentRoute, setCurrent] = useState([]);
-    // const [ routeInstructions, setInstructions ] = useState([]);
-    // const [ map, setMap ] = useState([]); 
+    const [routeInstructions, setInstructions] = useState([]);
     const [startCoordinates, setStart] = useState([]);
-    const [endCoordinates, setEnd] = useState([]); 
-    const [weather, setWeatherQuery] = useState([]); 
+    const [endCoordinates, setEnd] = useState([]);
+    const [weather, setWeatherQuery] = useState([]);
     let { id } = useParams();
 
     useEffect(() => {
@@ -23,7 +22,6 @@ function ViewRoute() {
             .then(res => {
                 setCurrent(res.data)
                 findWeather(res.data)
-                // route
                 findCoords(res.data)
             })
             .catch(err => console.log(err));
@@ -51,38 +49,20 @@ function ViewRoute() {
             })
     }
 
-        let start = startCoordinates.lonStart + "," + startCoordinates.latStart
-        let end = endCoordinates.lonEnd + "," + endCoordinates.latEnd
-        let map = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(" + start + "),pin-s-b+000(" + end + ")/auto/500x300?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
-        console.log(map)
-    
-    //         API.findCoords(end)         let end = data.end_location; 
+    //this is probably not best practice, look into more for map and route
+    let start = startCoordinates.lonStart + "," + startCoordinates.latStart
+    let end = endCoordinates.lonEnd + "," + endCoordinates.latEnd
+    let map = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(" + start + "),pin-s-b+000(" + end + ")/auto/500x300?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
 
-    // .then(res => setEndCoordinates({ latEnd: res.data.features[0].geometry.coordinates[1], lonEnd: res.data.features[0].geometry.coordinates[0] }))
-    // axios.get("https://api.mapbox.com/directions/v5/mapbox/cycling/"+ startCoordinates.lonStart+","+startCoordinates.latStart+ ";" + endCoordinates.lonEnd+","+ endCoordinates.latEnd +"?steps=true&access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A")
-    // .then(response => {
-    //     let steps = response.routes[0].legs[0].steps;
-    //     let tripInstructions = [];
-    //     tripInstructions.push(steps);
-    //     let loopInstructions = tripInstructions[0];
-    //     let pos = 0;
-    //     console.log(loopInstructions);
-    //     for (var i = 0; i < loopInstructions.length; i++) {
-    //       let number = i + 1;
-    //       let routeInstructions =
-    //         "<ul>" +
-    //         number +
-    //         ": " +
-    //         loopInstructions[pos].maneuver.instruction +
-    //         "</ul>";
-    //       pos++;
-    //       document.getElementById("routeInstructions").append(routeInstructions);
-    //     }
-    // })fa
-    {console.log(endCoordinates, startCoordinates)}
+
+    axios.get("https://api.mapbox.com/directions/v5/mapbox/cycling/" + start + ";" + end + "?steps=true&access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A")
+        .then(response => {
+            setInstructions(response.data.routes[0].legs[0].steps)
+        }
+        )
 
     return (
-        <div> 
+        <div>
             <Container>
                 <Row>
                     {weather.map((temp) =>
@@ -106,7 +86,13 @@ function ViewRoute() {
                     cardContent={currentRoute.review}
                 />
 
-                <div id="routeInstructions"></div>
+                <div id="routeInstructions">
+                    {routeInstructions.map((route, index) =>
+                        <li key={index}>
+                            {route.maneuver.instruction}
+                        </li>
+                    )}
+                </div>
                 <div>
                     <img src={map} alt="route"></img>
                 </div>
