@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Input from "../components/Input";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
+import { createBrowserHistory } from "history";
 
 function Search() {
     const [route, setRoute] = useState([])
+    const history = createBrowserHistory({ forceRefresh: true });
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -16,11 +18,9 @@ function Search() {
             API.createRoutes({
             start_location: route.start_location,
             end_location: route.end_location,           
-        })
+        }).then(res => history.push("/viewroute/" + res.data._id))
         .catch(err => console.log(err))
     };
-
-
 
     return (
         <div>
