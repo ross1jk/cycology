@@ -22,6 +22,10 @@ export default {
   updateReview: function(review){
     return axios.post("/api/routes/review/",  review)
   },
+  //Delete
+  deleteRoute: function(id){
+    return axios.delete("/api/routes/" + id)
+  },
   //Geolocation
   findCoords: function(location){
     return axios.get(geoUrl + location + geoEnd)

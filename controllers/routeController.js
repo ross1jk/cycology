@@ -35,4 +35,11 @@ module.exports = {
         .then(dbRoute => res.json(dbRoute))
         .catch(err => res.status(422).json(err)); 
     },
+    deleteRoute: function(req, res){
+        db.Route
+        .findById({ _id: req.params.id })
+        .then(dbModel => dbModel.remove())
+        .then(dbRoute => res.json(dbRoute))
+        .catch(err => res.status(422).json(err)); 
+    }
 }

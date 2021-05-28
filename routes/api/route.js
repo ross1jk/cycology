@@ -13,5 +13,6 @@ router.route("/review")
     
 router.route("/:id")
     .get(routeController.findOne)
-
+    .delete(routeController.deleteRoute)
+    
 module.exports = router; 
