@@ -64,12 +64,12 @@ function SavedRoutes() {
     function ratingChanged5(e, route) {
         e.preventDefault()
         const btn = document.getElementById("star5")
-        console.log(btn.value)
-        console.log(route._id)
         API.updateRating({
             _id: route._id,
             rating: btn.value
-        }).then(alert(`You set ${route._id} ${btn.value}`))
+        }).then(
+            history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually 
+            )
     }
 
     function handleInputChange(event) {

@@ -20,25 +20,17 @@ module.exports = {
         .catch(err => res.status(422).json(err)); 
     },
     updateRating: function (req, res){
-        db.Route
-        .findAndModify(
-            {
-                _id: req.body._id
-            },
-            {
-                update: {
-                    $set:{
-                    rating: req.body.rating
-                    }
-                }
-            })        
+        db.Route.updateOne(
+            { _id: req.body._id },
+            { $set:{ rating: req.body.rating}}
+                )        
         .then(dbRoute => res.json(dbRoute))
         .catch(err => res.status(422).json(err)); 
     },
     updateReview: function (req, res){
         db.Route.updateOne(
             { _id: req.body._id} ,
-            { $push: { review: req.body.review } }        
+            { $set: { review: req.body.review } }        
         )
         .then(dbRoute => res.json(dbRoute))
         .catch(err => res.status(422).json(err)); 
