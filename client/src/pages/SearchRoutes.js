@@ -13,12 +13,14 @@ function Search() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        API.createRoutes({
+            API.createRoutes({
             start_location: route.start_location,
-            end_location: route.end_location,
+            end_location: route.end_location,           
         })
         .catch(err => console.log(err))
     };
+
+
 
     return (
         <div>
