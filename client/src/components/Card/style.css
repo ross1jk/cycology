@@ -1,0 +1,31 @@
+.card {
+    border: none !important;
+    text-align: center;
+    background-color: transparent !important;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 200%;
+}
+
+#search{
+    margin-top: 100px;
+    border-style: double !important;
+    border-color: white !important;
+    background-color: #466665 !important;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-size: 60% !important;
+    background-color: #a8887f !important;
+    border: transparent !important;
+    color: white !important; 
+}
+
+#cardTitle, #cardText{
+    color: white !important;
+    text-shadow: #466665 3px 3px !important;
+    font-family: 'Roboto Condensed', sans-serif !important;
+}

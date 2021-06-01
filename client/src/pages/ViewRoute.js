@@ -64,7 +64,37 @@ function ViewRoute() {
     return (
         <div>
             <Container>
+            <Row>
+            <Card
+                    key="location"
+                    id={currentRoute._id}
+                    cardTitleOne={currentRoute.start_location}
+                    cardTitleTwo={currentRoute.end_location}
+                    to="to"
+                />
+            </Row>
                 <Row>
+                <Col size="6"> 
+                <div>
+                    <h2 className="view">Route</h2>
+                    <img src={map} alt="route"></img>
+                </div>
+                </Col>
+                <Col size="6">
+                <div id="routeInstructions"> 
+                <h2 className="view">Route Instructions</h2>
+                {/* do an or in case this doenst load */}
+                    {routeInstructions.map((route, index) =>
+                        <li key={index}>
+                            {route.maneuver.instruction}
+                        </li>
+                    )}
+                </div>
+                
+                </Col>
+                </Row>
+                <Row>
+                <h2 className="view">8 Day Forecast</h2>
                     {weather.map((temp) =>
                         <Col size="3" key={temp.dt}>
                             <Card
@@ -76,26 +106,6 @@ function ViewRoute() {
                         </Col>
                     )}
                 </Row>
-
-                <Card
-                    key="location"
-                    id={currentRoute._id}
-                    cardTitleOne={currentRoute.start_location}
-                    cardTitleTwo={currentRoute.end_location}
-                    to="to"
-                    cardContent={currentRoute.review}
-                />
-
-                <div id="routeInstructions">
-                    {routeInstructions.map((route, index) =>
-                        <li key={index}>
-                            {route.maneuver.instruction}
-                        </li>
-                    )}
-                </div>
-                <div>
-                    <img src={map} alt="route"></img>
-                </div>
             </Container>
         </div>
     )

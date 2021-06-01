@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import ReviewCard from "../components/ReviewCard";
-import { createBrowserHistory } from "history"; 
+import { createBrowserHistory } from "history";
 import { Container, Row } from "../components/Grid";
 
 function SavedRoutes() {
@@ -69,7 +69,7 @@ function SavedRoutes() {
             rating: btn.value
         }).then(
             history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually 
-            )
+        )
     }
     function handleInputChange(event) {
         const { value } = event.target;
@@ -84,42 +84,41 @@ function SavedRoutes() {
         })
     };
 
-    function deleteRoute(id){
+    function deleteRoute(id) {
         API.deleteRoute(id)
-        .then(res => loadRoutes())
-        .catch(err => console.log(err));
+            .then(res => loadRoutes())
+            .catch(err => console.log(err));
     }
 
     return (
         <div>
-            <p>Saved Routes</p>
-<Container>
-<Row>
+             <Container>
+                <Row>
 
-            {routes.map((route, index) =>
-                
-                <ReviewCard
-                    key={index}
-                    id={route._id}
-                    start={route.start_location}
-                    end={route.end_location}
-                    placeholder={route.review}
-                    stars={route.rating}
-                    value={routeReview}
-                    onChange={handleInputChange}
-                    onClick={(e) => { handleReviewSubmit(e, route) }}
-                    star1={(e) => ratingChanged1(e, route)}
-                    star2={(e) => ratingChanged2(e, route)}
-                    star3={(e) => ratingChanged3(e, route)}
-                    star4={(e) => ratingChanged4(e, route)}
-                    star5={(e) => ratingChanged5(e, route)}
-                    link={route._id}
-                    delete={() => deleteRoute(route._id)}
-                />
-                )}
-                
+                    {routes.map((route, index) =>
+
+                        <ReviewCard
+                            key={index}
+                            id={route._id}
+                            start={route.start_location}
+                            end={route.end_location}
+                            placeholder={route.review}
+                            stars={route.rating}
+                            value={routeReview}
+                            onChange={handleInputChange}
+                            onClick={(e) => { handleReviewSubmit(e, route) }}
+                            star1={(e) => ratingChanged1(e, route)}
+                            star2={(e) => ratingChanged2(e, route)}
+                            star3={(e) => ratingChanged3(e, route)}
+                            star4={(e) => ratingChanged4(e, route)}
+                            star5={(e) => ratingChanged5(e, route)}
+                            link={route._id}
+                            delete={() => deleteRoute(route._id)}
+                        />
+                    )}
+
                 </Row>
-       </Container>
+            </Container>
         </div>
     )
 }

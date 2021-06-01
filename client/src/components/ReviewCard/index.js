@@ -1,31 +1,31 @@
 import React from "react";
 import { Row, Col } from "../Grid";
 import Stars from 'simple-rating-stars';
-// import "./style.css";
+import "./style.css";
 
 function ReviewCard(props) {
     return (
         <div>
 
-            <div className="card" id={props.id}>
+            <div className="card review" id={props.id}>
                 <div className="card-body">
                     <Row>
                         <Col size="12">
                             <h2 id="start">Start: {props.start}</h2>
                             <h2 id="end">End: {props.end}</h2>
-                            </Col>
+                        </Col>
                     </Row>
                     <Row>
-                            <Col size="6">
+                        <Col size="6">
                             <Stars
                                 stars={props.stars}
                                 outOf={5}
-                                full={'#DEAD85'}
+                                full={'#a8887f'}
                                 empty={'#E1F1FF'}
-                                stroke={'#DEAD85'}
+                                stroke={'#a8887f'}
                             />
-                            </Col>
-                            <Col size="6">
+                        </Col>
+                        <Col size="6">
                             <div className="dropdown">
                                 <button className="btn btn-dark dropdown-toggle" type="button" id="starRating" data-bs-toggle="dropdown" aria-expanded="false">
                                     Rating
@@ -38,36 +38,37 @@ function ReviewCard(props) {
                                     <li><button className="dropdown-item" id="star5" type="button" value="5" onClick={props.star5}>5</button></li>
                                 </div>
                             </div>
-                            </Col>
-                            </Row>
-                            <Row>
-                            <Col size="9">
-                            <div className="form-group">
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="12">
+                            <div className="form-group" id="review">
                                 <label htmlFor="exampleFormControlTextarea1">What did you think of the route?</label>
                                 <textarea className="form-control" id="exampleFormControlTextarea1" onChange={props.onChange} rows="3" placeholder={props.placeholder}></textarea>
                             </div>
-                            </Col>
-                            <Col size="3">
-                            <div className="save">
-                                <button type="submit" className="btn btn-dark" onClick={props.onClick}>
-                                    Save Review </button>
-                            </div>
-                            </Col>
-</Row>
-<Row>
-
-<Col size="12">
-                            <div>
-                            <button type="submit" className="btn btn-dark" onClick={props.delete}> 
-                            Delete Route</button>
-                            <a href={`/viewroute/${props.link}`} type="button" className="btn btn-dark"> 
-                            Ride Again!</a>
-                            </div>
                         </Col>
                     </Row>
+                    <Row>
+                        <button type="submit" id="saveReview" className="btn" onClick={props.onClick}>
+                            Save Review </button>
+                    </Row>
+
+
+                    <Row>
+
+                        <Col size="6">
+
+                            <button type="submit" className="btn btn-dark" onClick={props.delete}>
+                                Delete Route</button>
+                        </Col>
+                        <Col size="6">
+                            <a href={`/viewroute/${props.link}`} type="button" className="btn btn-dark">
+                                Ride Again!</a>
+                        </Col>
+                    </Row>
+
                 </div>
             </div>
-
         </div>
     );
 }

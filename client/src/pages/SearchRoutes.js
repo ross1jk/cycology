@@ -25,23 +25,27 @@ function Search() {
     return (
         <div>
             <Container>
+            <div className="card" id="search">
+                <div className="card-body">
                 <form id="newRoute" onSubmit={handleFormSubmit}>
                     <Input
                         value={route.start_location}
                         onChange={handleInputChange}
                         type="text"
                         name="start_location"
-                        placeholder="Road, City, State"
+                        placeholder="Start: Road, City, State"
                     />
                     <Input
                         value={route.end_location}
                         onChange={handleInputChange}
                         type="text"
                         name="end_location"
-                        placeholder="Road, City, State"
+                        placeholder="End: Road, City, State"
                     />
                     <button type="submit" className="btn btn-light" id="submit">Search Routes</button>
                 </form>
+                </div>
+                </div>
             </Container>
         </div>
     )

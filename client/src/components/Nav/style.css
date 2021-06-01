@@ -1,0 +1,45 @@
+body {
+    background-color: #93ada6 !important;
+    color: #3c423d;
+    /* App Color Palatte
+  Main: #93ada6 //blue green
+  Accent:  #bec4bb gray 
+  Accent: #466665 darker teal
+  Accent: #a8887f pop of dark muddy pink
+  Font: #3c423d
+    */
+  }
+
+#navbar{
+    /* background-color: #466665; */
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 7px black !important;
+}
+
+#navTitle{
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 300%;
+    color: white;
+    text-shadow: #466665 2px 2px !important;
+}
+
+a {
+    font-size: 200% !important;
+    color: #466665 !important;
+    text-shadow: #bec4bb 1px 1px !important;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+a:hover{
+    border-bottom: 0.125em solid #a8887f !important;
+    color: #a8887f !important; 
+}
+
+.view{
+    color: #466665 !important;
+    text-shadow: #bec4bb 2px 2px !important;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 200%;
+    margin-top: 15px;
+}
