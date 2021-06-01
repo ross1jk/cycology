@@ -18,7 +18,7 @@ The cyclist will also be given a weather forecast for the current day, so they c
 
 ## Deployed Application
 
-Access the deployed application at:
+Access the deployed application at: [Cycology](https://glacial-tundra-95174.herokuapp.com/)
 
 ## Usage
 
