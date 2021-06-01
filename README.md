@@ -2,8 +2,6 @@
 
 ![badge](https://img.shields.io/static/v1?label=License&message=MIT%20License&color=blue)
 
-![logo](./client/public/cycology.jpeg)
-
 ## Description
 
 People who live an active lifestyle either have a hard time finding routes or remembering routes they have taken before. This application, enables cyclists to enter a start and end destination and have a cycle-friendly route created for them with step by step instructions.
