@@ -4,30 +4,21 @@ import SavedRoutes from "./pages/SavedRoutes";
 import SearchRoutes from "./pages/SearchRoutes";
 import ViewRoute from "./pages/ViewRoute";
 import Nav from "./components/Nav";
+import Search from "./pages/SearchRoutes";
 
 function App() {
 
 
   return (
     <Router>
-      <div>
       <Nav />
         <Switch>
 
-          <Route exact path={["/", "/search"]}>
-            <SearchRoutes />
-          </Route>
-
-          <Route exact path={"/saved"}>
-            <SavedRoutes />
-          </Route>
-
-          <Route exact path={"/viewroute/:id"}>
-            <ViewRoute />
-          </Route>
-
+          <Route exact path={["/", "/search"]} component={SearchRoutes} />
+          <Route exact path={"/saved"} component={SavedRoutes} />
+          <Route exact path={"/viewroute/:id"} component={ViewRoute} />
+     
         </Switch>
-      </div>
     </Router>
   );
 }
