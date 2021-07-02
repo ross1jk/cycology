@@ -23,9 +23,12 @@ function ViewRoute() {
                 setCurrent(res.data)
                 findWeather(res.data)
                 findCoords(res.data)
-            })
-            .catch(err => console.log(err));
+            }).catch(err => console.log(err));
     }
+
+    // if (loadRoutes){
+    //     otherData()
+    // }
 
     function findCoords(data) {
         API.findCoords(data.start_location)
@@ -33,6 +36,7 @@ function ViewRoute() {
                 latStart: res.data.features[0].geometry.coordinates[1],
                 lonStart: res.data.features[0].geometry.coordinates[0]
             }))
+
         API.findCoords(data.end_location)
             .then(res => setEnd({
                 latEnd: res.data.features[0].geometry.coordinates[1],
@@ -48,54 +52,55 @@ function ViewRoute() {
                     .then(res => setWeatherQuery(res.data.daily))
             })
     }
+    
+    function routeDetails(){
+        let start = startCoordinates.lonStart + "," + startCoordinates.latStart
+        let end = endCoordinates.lonEnd + "," + endCoordinates.latEnd
+       // let map = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(" + start + "),pin-s-b+000(" + end + ")/auto/500x300?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
 
-    //this is probably not best practice, look into more for map and route
-    let start = startCoordinates.lonStart + "," + startCoordinates.latStart
-    let end = endCoordinates.lonEnd + "," + endCoordinates.latEnd
-    let map = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(" + start + "),pin-s-b+000(" + end + ")/auto/500x300?access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A"
-
-
-    axios.get("https://api.mapbox.com/directions/v5/mapbox/cycling/" + start + ";" + end + "?steps=true&access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A")
-        .then(response => {
-            setInstructions(response.data.routes[0].legs[0].steps)
-        }
-        )
+        axios.get("https://api.mapbox.com/directions/v5/mapbox/cycling/" + start + ";" + end + "?steps=true&access_token=pk.eyJ1Ijoicm9zczFqayIsImEiOiJja2p0YzJ0bmowOTd3MnFxc2c0Z2NiMWw0In0.3mcyR7CpPBKi_sGyVdA26A")
+            .then(response => {
+                setInstructions(response.data.routes[0].legs[0].steps)
+            }
+            )
+      //  document.getElementById("displayMap").append(<img src={map} alt="route"></img>)
+    }
 
     return (
         <div>
             <Container>
-            <Row>
-            <Card
-                    key="location"
-                    id={currentRoute._id}
-                    cardTitleOne={currentRoute.start_location}
-                    cardTitleTwo={currentRoute.end_location}
-                    to="to"
-                />
-            </Row>
                 <Row>
-                <Col size="6"> 
-                <div>
-                    <h2 className="view">Route</h2>
-                    <img src={map} alt="route"></img>
-                </div>
-                </Col>
-                <Col size="6">
-                <div id="routeInstructions"> 
-                <h2 className="view">Route Instructions</h2>
-                {/* do an or in case this doenst load */}
-                    {routeInstructions.map((route, index) =>
-                        <li key={index}>
-                            {route.maneuver.instruction}
-                        </li>
-                    )}
-                </div>
-                
-                </Col>
+                    <Card
+                        key="location"
+                        id={currentRoute._id}
+                        cardTitleOne={currentRoute.start_location}
+                        cardTitleTwo={currentRoute.end_location}
+                        to="to"
+                    />
                 </Row>
                 <Row>
-                <h2 className="view">8 Day Forecast</h2>
-                    {weather.map((temp) =>
+                    <Col size="6">
+                        <div>
+                            <h2 className="view">Route</h2>
+                            <div id="displayMap"></div>
+                        </div>
+                    </Col>
+                    <Col size="6">
+                        <div id="routeInstructions">
+                            <h2 className="view">Route Instructions</h2>
+                            {/* do an or in case this doenst load */}
+                            {!routeInstructions.length ? (<h1>Search a Route</h1>) : routeInstructions.map((route, index) =>
+                                <li key={index}>
+                                    {route.maneuver.instruction}
+                                </li>
+                            )}
+                        </div>
+
+                    </Col>
+                </Row>
+                <Row>
+                    <h2 className="view">8 Day Forecast</h2>
+                    {!weather.length ? (<p>No Data Available</p>) : weather.map((temp) =>
                         <Col size="3" key={temp.dt}>
                             <Card
                                 key={temp.dt}
