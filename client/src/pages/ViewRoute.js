@@ -15,7 +15,7 @@ function ViewRoute() {
 
     useEffect(() => {
         loadRoutes(id)
-    }, [id])
+    }, [])
 
     function loadRoutes(id) {
         API.findOne(id)
@@ -52,7 +52,7 @@ function ViewRoute() {
                     .then(res => setWeatherQuery(res.data.daily))
             })
     }
-    
+
     function routeDetails(){
         let start = startCoordinates.lonStart + "," + startCoordinates.latStart
         let end = endCoordinates.lonEnd + "," + endCoordinates.latEnd
