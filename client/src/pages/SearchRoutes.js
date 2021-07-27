@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../components/Input";
 import API from "../utils/API";
 import { Container, Row, Col} from "../components/Grid";
@@ -6,7 +6,10 @@ import Card from "../components/Card";
 import axios from "axios";
 
 function Search() {
-    const [route, setRoute] = useState([])
+    const [route, setRoute] = useState(
+       { start_location: "Royal Oak Michigan",
+        end_location: "Detroit Michigan"}
+        )
     const [currentRoute, setCurrent] = useState([]);
     const [routeInstructions, setInstructions] = useState([]);
     const [startCoordinates, setStart] = useState([]);
@@ -18,6 +21,27 @@ function Search() {
         setRoute({ ...route, [name]: value })
     }
 
+    useEffect(() => {
+        pageLoad()
+    }, [])
+
+    function pageLoad() {
+        API.findCoords(route.start_location)
+        .then(res => setStart({
+            latStart: res.data.features[0].geometry.coordinates[1],
+            lonStart: res.data.features[0].geometry.coordinates[0]
+        }))
+         API.findCoords(route.end_location)
+        .then(res => setEnd({
+            latEnd: res.data.features[0].geometry.coordinates[1],
+            lonEnd: res.data.features[0].geometry.coordinates[0]
+        }))
+        API.findCoords(route.start_location)
+            .then(res => {
+                axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + res.data.features[0].geometry.coordinates[1] + "&lon=" + res.data.features[0].geometry.coordinates[0] + "&units=imperial&appid=101220419d85ffb610459f1145df78ff")
+                    .then(res => setWeatherQuery(res.data.daily))
+            })
+    }
     function handleFormSubmit(event) {
         event.preventDefault(); 
         API.findCoords(route.start_location)
