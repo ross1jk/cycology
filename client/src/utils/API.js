@@ -13,7 +13,7 @@ export default {
   },
   // create new routes
   createRoutes: function(userRoute) {
-    return axios.post("/api/routes", userRoute)
+    return axios.post("/api/routes/", userRoute)
   },
   // Update 
   updateRating: function(rating){
