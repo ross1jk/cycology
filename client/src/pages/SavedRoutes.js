@@ -28,7 +28,7 @@ function SavedRoutes() {
             _id: route._id,
             rating: btn.value
         }).then(
-            history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually 
+            window.location.reload()
         )
     }
     function ratingChanged2(e, route) {
@@ -38,7 +38,7 @@ function SavedRoutes() {
             _id: route._id,
             rating: btn.value
         }).then(
-            history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually 
+            window.location.reload()
         )
     }
     function ratingChanged3(e, route) {
@@ -48,8 +48,7 @@ function SavedRoutes() {
             _id: route._id,
             rating: btn.value
         }).then(
-            history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually 
-        )
+            window.location.reload())
     }
     function ratingChanged4(e, route) {
         e.preventDefault()
@@ -58,8 +57,7 @@ function SavedRoutes() {
             _id: route._id,
             rating: btn.value
         }).then(
-            history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually 
-        )
+            window.location.reload())
     }
     function ratingChanged5(e, route) {
         e.preventDefault()
@@ -68,7 +66,7 @@ function SavedRoutes() {
             _id: route._id,
             rating: btn.value
         }).then(
-            history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually 
+            window.location.reload()
         )
     }
     function handleInputChange(event) {
@@ -92,7 +90,7 @@ function SavedRoutes() {
 
     return (
         <div>
-             <Container>
+            <Container>
                 <Row>
 
                     {routes.map((route, index) =>

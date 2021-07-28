@@ -98,7 +98,7 @@ function Search() {
             end_coordinates: endCoordinates.lonEnd + "," + endCoordinates.latEnd
         })
             .catch(err => console.log(err))
-            .then(history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually
+            .then(alert("Route Saved! Go to Saved Routes to view details.") //if pass in unique ids this would have to be a param eventually
             )
     }
 
@@ -146,15 +146,6 @@ function Search() {
                         </div>
                     </Col>
                     <Col size="6">
-                        {/*<div id="routeInstructions"> 
-               {/* <h2 className="view">Route Instructions</h2>
-                {/* do an or in case this doenst load */}
-                        {/* {routeInstructions.map((route, index) =>
-                        <li key={index}>
-                            {route.maneuver.instruction}
-                        </li>
-                    )} */}
-                        {/* </div> */}
                         <Row>
                             <h2 className="view">8 Day Forecast</h2>
                             {weather.map((temp) =>

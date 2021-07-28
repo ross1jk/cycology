@@ -24,6 +24,12 @@
     color: white !important; 
 }
 
+#submit{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #cardTitle, #cardText{
     color: white !important;
     text-shadow: #466665 3px 3px !important;
