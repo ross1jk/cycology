@@ -4,6 +4,7 @@ import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import Card from "../components/Card";
 import axios from "axios";
+import { createBrowserHistory } from "history";
 
 function Search() {
     const [route, setRoute] = useState(
@@ -22,17 +23,18 @@ function Search() {
         lonEnd: 83.0458,
         latEnd: 42.3314,
     });
+    const history = createBrowserHistory({ forceRefresh: true });
 
     const [weather, setWeatherQuery] = useState([]);
+
+    useEffect(() => {
+        pageLoad()
+    }, [])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
         setRoute({ ...route, [name]: value })
     }
-
-    useEffect(() => {
-        pageLoad()
-    }, [])
 
     function pageLoad() {
         API.findCoords(route.start_location)
@@ -96,6 +98,8 @@ function Search() {
             end_coordinates: endCoordinates.lonEnd + "," + endCoordinates.latEnd
         })
             .catch(err => console.log(err))
+            .then(history.push(`/saved/`) //if pass in unique ids this would have to be a param eventually
+            )
     }
 
     return (
