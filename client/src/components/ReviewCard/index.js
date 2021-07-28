@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "../Grid";
 import Stars from 'simple-rating-stars';
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function ReviewCard(props) {
@@ -62,8 +63,9 @@ function ReviewCard(props) {
                                 Delete Route</button>
                         </Col>
                         <Col size="6">
-                            <a href={`/viewroute/${props.link}`} type="button" className="btn btn-dark">
-                                Ride Again!</a>
+                            <Link to={`/viewroute/${props.link}`} type="button" className="btn btn-dark">
+                                Ride Again!
+                            </Link>
                         </Col>
                     </Row>
 
